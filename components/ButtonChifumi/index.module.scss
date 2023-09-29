@@ -1,10 +1,5 @@
 .root {
-    display: flex;
     flex-direction: column;
-    padding: 1rem;
-    gap: 1rem;
-
-    cursor: pointer;
 
     &:hover {
         transform: translateY(-30%);
