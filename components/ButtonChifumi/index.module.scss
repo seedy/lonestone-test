@@ -4,8 +4,10 @@
     padding: 1rem;
     gap: 1rem;
 
+    cursor: pointer;
+
     &:hover {
-        transform: translateY(-40%);
+        transform: translateY(-30%);
         transition: transform 0.5s;
     }
 }

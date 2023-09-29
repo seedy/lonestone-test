@@ -8,10 +8,10 @@ import { useEffect, useState } from "react";
 
 interface HandProps {
     move: Move | undefined,
-    setMove: (nextMove: Move) => void
+    setMove: (nextMove: Move | undefined) => void
 }
 const Hand = () => {
-    const {move, setMove} = useContextStore();
+    const {move, setMove, onComputerMove , onScore} = useContextStore();
     
     const onClickPaper = () => {
         setMove(PAPER);
@@ -25,13 +25,9 @@ const Hand = () => {
         setMove(ROCK);
     }
 
-    useEffect(() => {
-        if (move) {
-            setTimeout(() => {
-                
-            }, 1000)
-        }
-    })
+    if (move) {
+        return null;
+    }
 
     return (
         <ButtonGroup spacing={8}>
