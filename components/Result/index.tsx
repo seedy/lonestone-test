@@ -14,12 +14,12 @@ const Result = () => {
 
 
     return (
-        <Flex gap={8} align="center">
+        <Flex gap={8} align="center" justify="center" direction={["column", "column", "row"]}>
         <Flex direction="column">
             <CardChifumi variant={computerMove}/>
             <CardChifumi variant={move} />
         </Flex>
-        <Flex gap={4} direction="column">
+        <Flex gap={4} direction="column" align="center" justify="center">
         <WinText move={move} computerMove={computerMove}/>
         <Button colorScheme="blackAlpha" onClick={onClear}>Continue</Button>
         </Flex>

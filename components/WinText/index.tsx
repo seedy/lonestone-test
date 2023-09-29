@@ -11,10 +11,10 @@ const WinText = ({move, computerMove}: WinTextProps) => {
 
     if (didIWin === null) {
         return (
-            <Text fontSize={22} fontWeight="bold" color="white">Draw !</Text>
+            <Text whiteSpace="nowrap" fontSize={22} fontWeight="bold" color="white">Draw !</Text>
         )
     }
-    return didIWin ? <Text fontSize={22} fontWeight="bold" color="white">You win!</Text> : <Text fontSize={22} fontWeight="bold" color="white">Computer wins!</Text>
+    return didIWin ? <Text whiteSpace="nowrap" fontSize={22} fontWeight="bold" color="white">You win!</Text> : <Text whiteSpace="nowrap" fontSize={22} fontWeight="bold" color="white">Computer wins!</Text>
 }
 
 export default WinText

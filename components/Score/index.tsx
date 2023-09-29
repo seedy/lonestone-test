@@ -13,8 +13,8 @@ const Score = () => {
 
     return (
         <>
-        <Flex direction="column" gap={6} p={[6, 12]} className={styles.root}>
-            <Flex direction="column" hideBelow="sm">
+        <Flex direction="column" gap={6} p={[6, 8, 12]} bg={["transparent", "transparent", "linear-gradient(to right, #7e2ab6, #814e40 )"]} className={styles.root}>
+            <Flex direction="column" hideBelow="md">
                 <Heading mb={4} as="h2">Score</Heading>
                 <Heading as="h3" fontSize={16}>Computer : {score[1]}</Heading>
                 <Heading as="h3" fontSize={16} fontWeight="bold">You : {score[0]}</Heading>
