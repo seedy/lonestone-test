@@ -7,6 +7,10 @@ const MY_MOVE_WIN_OPTIONS = {
 }
 
 const computeWin = (myMove: Move, computerMove: Move) => {
+    const draw = myMove === computerMove;
+    if (draw) {
+        return null;
+    }
     return MY_MOVE_WIN_OPTIONS[myMove] === computerMove
 }
 
