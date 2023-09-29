@@ -1,0 +1,11 @@
+.root {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+
+    &:hover {
+        transform: translateY(-40%);
+        transition: transform 0.5s;
+    }
+}
