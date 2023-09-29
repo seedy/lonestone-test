@@ -2,16 +2,12 @@
 
 import ButtonChifumi from "@/components/ButtonChifumi";
 import { useContextStore } from "@/components/Context";
-import { Move, PAPER, ROCK, SCISSOR } from "@/constants/move";
-import { ButtonGroup } from "@chakra-ui/react";
+import { PAPER, ROCK, SCISSOR } from "@/constants/move";
+import { ButtonGroup, Heading } from "@chakra-ui/react";
 import { useEffect } from "react";
 
-interface HandProps {
-    move: Move | undefined,
-    setMove: (nextMove: Move | undefined) => void
-}
 const Hand = () => {
-    const {move, onMove, onClear} = useContextStore();
+    const {move, onMove, onClear, score} = useContextStore();
     
     const onClickPaper = () => {
         onMove(PAPER);
@@ -44,11 +40,16 @@ const Hand = () => {
     }
 
     return (
-        <ButtonGroup spacing={8}>
+        <>
+        <ButtonGroup spacing={[4, 4, 4, 8]}>
             <ButtonChifumi variant={ROCK} onClick={onClickRock} />
             <ButtonChifumi variant={PAPER} onClick={onClickPaper} />
             <ButtonChifumi variant={SCISSOR} onClick={onClickScissor} />
         </ButtonGroup>
+        <Heading as="h2" fontSize={18} color="white" fontWeight="bold">
+            You - {score[0]}
+        </Heading>
+        </>
     )
 }
 

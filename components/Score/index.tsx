@@ -8,20 +8,20 @@ import WinText from "@/components/WinText";
 
 const Score = () => {
     const {score, history} = useContextStore();
-
+    
     const {onOpen, isOpen, onClose} = useDisclosure();
 
     return (
         <>
-        <Flex direction="column" gap={6} className={styles.root}>
-            <Heading as="h2">Score</Heading>
-            <Flex direction="column">
-                <Text>Computer : {score[1]}</Text>
-                <Text fontWeight="bold">You : {score[0]}</Text>
+        <Flex direction="column" gap={6} p={[6, 12]} className={styles.root}>
+            <Flex direction="column" hideBelow="sm">
+                <Heading mb={4} as="h2">Score</Heading>
+                <Heading as="h3" fontSize={16}>Computer : {score[1]}</Heading>
+                <Heading as="h3" fontSize={16} fontWeight="bold">You : {score[0]}</Heading>
             </Flex>
-            <Button colorScheme="blackAlpha" onClick={onOpen}>History</Button>
+            <Button isDisabled={history.length === 0} size={["sm", "md"]} colorScheme="blackAlpha" onClick={onOpen}>History</Button>
         </Flex>
-        <Modal isOpen={isOpen} onClose={onClose}>
+        <Modal isOpen={isOpen} onClose={onClose} size={["full", "md"]}>
         <ModalOverlay />
         <ModalContent className={styles.modal}>
           <ModalHeader>History</ModalHeader>

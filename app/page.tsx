@@ -3,6 +3,7 @@ import styles from './page.module.css'
 import Hand from '@/components/Hand'
 import Score from '@/components/Score'
 import { Heading } from '@chakra-ui/react'
+import ComputerHand from '@/components/Hand/Computer'
 
 export default function Home() {
   return (
@@ -14,12 +15,11 @@ export default function Home() {
         <Result/>
        </section>
        <section className={styles.computer}>
-         <Heading as="h1">Chifumi</Heading>
-        Computer
+          <Heading as="h1">Chifumi</Heading>
+          <ComputerHand/>
        </section>
        <section className={styles.me}>
         <Hand/>
-        You
        </section>
     </main>
   )
