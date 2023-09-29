@@ -7,6 +7,7 @@ const useComputer = () => {
     const onMove = () => {
         const randomMove = MOVES[Math.floor(Math.random() * MOVES.length)];
         setComputerMove(randomMove);
+        return randomMove
     }
 
     return [computerMove, onMove] as const

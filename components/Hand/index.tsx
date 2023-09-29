@@ -4,26 +4,40 @@ import ButtonChifumi from "@/components/ButtonChifumi";
 import { useContextStore } from "@/components/Context";
 import { Move, PAPER, ROCK, SCISSOR } from "@/constants/move";
 import { ButtonGroup } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 interface HandProps {
     move: Move | undefined,
     setMove: (nextMove: Move | undefined) => void
 }
 const Hand = () => {
-    const {move, setMove, onComputerMove , onScore} = useContextStore();
+    const {move, onMove, onClear} = useContextStore();
     
     const onClickPaper = () => {
-        setMove(PAPER);
+        onMove(PAPER);
     }
 
     const onClickScissor = () => {
-        setMove(SCISSOR)
+        onMove(SCISSOR)
     }
 
     const onClickRock = () => {
-        setMove(ROCK);
+        onMove(ROCK);
     }
+
+    useEffect(() => {
+        let timeout: NodeJS.Timeout;
+        if (move) {
+            timeout = setTimeout(() => {
+                onClear();
+            }, 3000)
+        }
+        return () => {
+            if (timeout) {
+                clearTimeout(timeout);
+            }
+        }
+    }, [move, onClear])
 
     if (move) {
         return null;

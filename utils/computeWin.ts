@@ -6,7 +6,9 @@ const MY_MOVE_WIN_OPTIONS = {
     [SCISSOR]: PAPER
 }
 
-const computeWin = (myMove: Move, computerMove: Move) => {
+export type WinValue = null | boolean
+
+const computeWin = (myMove: Move, computerMove: Move): WinValue => {
     const draw = myMove === computerMove;
     if (draw) {
         return null;

@@ -2,27 +2,15 @@
 
 import CardChifumi from "@/components/CardChifumi";
 import { useContextStore } from "@/components/Context";
-import computeWin from "@/utils/computeWin";
-import { Flex, Text } from "@chakra-ui/react";
-import { useEffect } from "react";
+import WinText from "@/components/WinText";
+import { Button, Flex, Text } from "@chakra-ui/react";
 
 const Result = () => {
-    const {move, computerMove, onComputerMove, setMove} = useContextStore();
-
-    useEffect(() => {
-        if (move) {
-            onComputerMove();
-            setTimeout(() => {
-                setMove(undefined);
-            }, 3000);
-        }
-    }, [move, setMove, onComputerMove])
+    const {move, computerMove, onClear} = useContextStore();
 
     if (!move || !computerMove) {
         return null;
     }
-
-    const didIWin = computeWin(move, computerMove);
 
 
     return (
@@ -31,11 +19,10 @@ const Result = () => {
             <CardChifumi variant={computerMove}/>
             <CardChifumi variant={move} />
         </Flex>
-        {didIWin === null ? <Text>Draw !</Text> : (
-            <>
-                {didIWin ? <Text>You win !</Text> : <Text>Computer wins !</Text>}
-            </>
-        )}
+        <Flex gap={4} direction="column">
+        <WinText move={move} computerMove={computerMove}/>
+        <Button colorScheme="blackAlpha" onClick={onClear}>Continue</Button>
+        </Flex>
         </Flex>
     )
 }
