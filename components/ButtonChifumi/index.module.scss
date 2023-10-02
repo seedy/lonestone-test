@@ -5,4 +5,8 @@
         transform: translateY(-30%);
         transition: transform 0.5s;
     }
+    &:focus-visible {
+        transform: translateY(-30%);
+        transition: transform 0.5s;
+    }
 }
